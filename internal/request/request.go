@@ -73,7 +73,7 @@ func (r *Request) parse(data []byte) (int, error) {
 	}
 	rqLine, numBytes, err := parseRequestLine(data)
 	if err != nil {
-		return 0, fmt.Errorf("T %w", err)
+		return 0, fmt.Errorf(" %w", err)
 	}
 	if numBytes == 0 {
 		return 0, nil
@@ -143,7 +143,6 @@ func RequestFromReader(reader io.Reader) (*Request, error) {
 		}
 
 		numBytes, err := reader.Read(buffer[indexStart:])
-		fmt.Printf("NumBytes: %d", numBytes)
 		if err != nil {
 			if err != io.EOF {
 				return nil, fmt.Errorf("Error reading")
